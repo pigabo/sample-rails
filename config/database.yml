@@ -41,8 +41,9 @@ test:
 
 production:
   adapter: postgresql
-  database: sample_rails_production
-  username: postgres
-  password: password
+  host: ec2-54-204-45-126.compute-1.amazonaws.com
+  database: da5hfq2fcbokmu
+  username: ptgiwxrcilopox
+  password: i25lNTmtmycSTsPLJu4HGeZfVe
   pool: 5
   timeout: 5000
