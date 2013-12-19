@@ -24,12 +24,11 @@
   # pool: 5
   # timeout: 5000
   
-production:
+development:
   adapter: postgresql
-  host: ec2-54-204-45-126.compute-1.amazonaws.com
-  database: da5hfq2fcbokmu
-  username: ptgiwxrcilopox
-  password: i25lNTmtmycSTsPLJu4HGeZfVe
+  database: sample_rails_development
+  username: postgres
+  password: password
   pool: 5
   timeout: 5000
   
