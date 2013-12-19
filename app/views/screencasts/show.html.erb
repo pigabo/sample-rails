@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @screencast.title %>
+</p>
+
+<p>
+  <b>Summary:</b>
+  <%= @screencast.summary %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @screencast.duration %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= @screencast.link %>
+</p>
+
+<p>
+  <b>Published at:</b>
+  <%= @screencast.published_at %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%= @screencast.source %>
+</p>
+
+<p>
+  <b>Videourl:</b>
+  <%= @screencast.videourl %>
+</p>
+
+
+<%= link_to 'Edit', edit_screencast_path(@screencast) %> |
+<%= link_to 'Back', screencasts_path %>

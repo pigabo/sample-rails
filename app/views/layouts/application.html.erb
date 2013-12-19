@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SampleRails</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  
+  <%= csrf_meta_tags %>
+  <%= auto_discovery_link_tag(:rss, issues_path(:rss)) %>
+</head>
+<body >
+	
+	<ul>
+		<li><a href="/issues">View Issues</a></li>
+		<li><a href="/issues/new">New Issue</a></li>
+	</ul>
+
+<%= yield %>
+
+<%= javascript_include_tag "application" %>
+
+</body>
+</html>

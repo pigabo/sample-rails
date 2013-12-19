@@ -1,0 +1,54 @@
+<div ng-app="AngularCasts" ng-controller="ScreencastsCtrl">
+
+	<h1>Listing screencasts</h1>
+
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Summary</th>
+			<th>Duration</th>
+			<th>Link</th>
+			<th>Published at</th>
+			<th>Source</th>
+			<th>Videourl</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+
+		<% @screencasts.each do |screencast| %>
+		<tr>
+			<td><%= screencast.title %></td>
+			<td><%= screencast.summary %></td>
+			<td><%= screencast.duration %></td>
+			<td><%= screencast.link %></td>
+			<td><%= screencast.published_at %></td>
+			<td><%= screencast.source %></td>
+			<td><%= screencast.videourl %></td>
+			<td><%= link_to 'Show', screencast %></td>
+			<td><%= link_to 'Edit', edit_screencast_path(screencast) %></td>
+			<td><%= link_to 'Destroy', screencast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		</tr>
+		<% end %>
+	</table>
+
+	<br />
+
+	<%= link_to 'New Screencast', new_screencast_path %>
+
+	<hr>
+	<h1>Angular</h1>
+	<label>Name:</label>
+	<input type="text" ng-model="yourName" placeholder="Enter a name here">
+
+	<h1>Hello {{message}}!</h1>
+	
+	  <div id="screencast-list-container">
+    <ul>
+      <li ng-repeat="screencast in screencasts">
+        <h3>{{screencast.title}} <small>({{screencast.duration}})</small></h3>
+      </li>
+    </ul>
+  </div>
+
+</div>
