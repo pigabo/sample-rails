@@ -12,8 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require lodash.compat.min
 //= require angular.min
 //= require angular-resource.min
+//= require restangular.min
 //= require_tree .
 //= require_tree ./angular
 

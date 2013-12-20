@@ -1,8 +1,11 @@
 SampleRails::Application.routes.draw do
   
-  scope :api do
+  scope :api, defaults: {format: :json} do
     get "/api/screencasts(.:format)" => "screencasts#index"
-    get "/api/screencasts/:id(.:format)" => "screencasts#index"
+    get "/api/screencasts(.:format)/:id" => "screencasts#show"
+    put "/api/screencasts(.:format)/:id" => "screencasts#update"
+    post "/api/screencasts(.:format)" => "screencasts#create"
+    delete "/api/screencasts(.:format)/:id" => "screencasts#destroy"
   end
   
   resources :screencasts

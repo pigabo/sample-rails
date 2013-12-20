@@ -37,16 +37,28 @@
 	<%= link_to 'New Screencast', new_screencast_path %>
 
 	<hr>
-	<h1>Angular</h1>
-	<label>Name:</label>
-	<input type="text" ng-model="yourName" placeholder="Enter a name here">
+	<h1>New</h1>
+	<label>Title:</label>	
+	<input type="text" ng-model="newScreencast.title" placeholder="title">
 
-	<h1>Hello {{message}}!</h1>
+	<label>Summary:</label>
+	<input type="text" ng-model="newScreencast.summary" placeholder="summary">
 	
-	  <div id="screencast-list-container">
+	<button ng-click="createScreencast()">Create</button>
+
+	<h1>Selected</h1>
+	<label>Title:</label>
+	<input type="text" ng-model="selectedScreencast.title" placeholder="summary">
+	<label>Summary:</label>
+	<input type="text" ng-model="selectedScreencast.summary" placeholder="summary">
+	
+	<button ng-click="updateScreencast()">Update</button>
+	
+	<h1>All</h1>
+	<div id="screencast-list-container">
     <ul>
       <li ng-repeat="screencast in screencasts">
-        <h3>{{screencast.title}} <small>({{screencast.duration}})</small></h3>
+        <span>{{screencast.title}} <small>({{screencast.summary}})</small><button ng-click="selectScreencast(screencast)">Select</button><button ng-click="deleteScreencast(screencast)">Delete</button></span>
       </li>
     </ul>
   </div>
