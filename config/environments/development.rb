@@ -34,4 +34,7 @@ SampleRails::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  # Sam - pretty json
+  config.middleware.use PrettyJsonResponse
 end
