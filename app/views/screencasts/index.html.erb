@@ -1,66 +1,84 @@
 <div ng-app="AngularCasts" ng-controller="ScreencastsCtrl">
 
-	<h1>Listing screencasts</h1>
+  <div class="row">
+    <div class="col-md-4">
 
-	<table>
-		<tr>
-			<th>Title</th>
-			<th>Summary</th>
-			<th>Duration</th>
-			<th>Link</th>
-			<th>Published at</th>
-			<th>Source</th>
-			<th>Videourl</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
+      <form role="form">
+        <h1>Create New Screencast</h1>
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" ng-model="newScreencast.title" placeholder="title">
+        </div>
 
-		<% @screencasts.each do |screencast| %>
-		<tr>
-			<td><%= screencast.title %></td>
-			<td><%= screencast.summary %></td>
-			<td><%= screencast.duration %></td>
-			<td><%= screencast.link %></td>
-			<td><%= screencast.published_at %></td>
-			<td><%= screencast.source %></td>
-			<td><%= screencast.videourl %></td>
-			<td><%= link_to 'Show', screencast %></td>
-			<td><%= link_to 'Edit', edit_screencast_path(screencast) %></td>
-			<td><%= link_to 'Destroy', screencast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		</tr>
-		<% end %>
-	</table>
+        <div class="form-group">
+          <label>Summary</label>
+          <input type="text" class="form-control"  ng-model="newScreencast.summary" placeholder="summary">
+        </div>
 
-	<br />
+        <button type="submit" class="btn btn-default" ng-click="createScreencast()"> Create </button>
+      </form>
 
-	<%= link_to 'New Screencast', new_screencast_path %>
+      <h1>Selected</h1>
+      <label>Title:</label>
+      <input type="text" ng-model="selectedScreencast.title" placeholder="summary">
+      <label>Summary:</label>
+      <input type="text" ng-model="selectedScreencast.summary" placeholder="summary">
 
-	<hr>
-	<h1>New</h1>
-	<label>Title:</label>	
-	<input type="text" ng-model="newScreencast.title" placeholder="title">
+      <button class="btn"  ng-click="updateScreencast()"> Update </button>
 
-	<label>Summary:</label>
-	<input type="text" ng-model="newScreencast.summary" placeholder="summary">
-	
-	<button ng-click="createScreencast()">Create</button>
+    </div>
+    <div class="col-md-8">
 
-	<h1>Selected</h1>
-	<label>Title:</label>
-	<input type="text" ng-model="selectedScreencast.title" placeholder="summary">
-	<label>Summary:</label>
-	<input type="text" ng-model="selectedScreencast.summary" placeholder="summary">
-	
-	<button ng-click="updateScreencast()">Update</button>
-	
-	<h1>All</h1>
-	<div id="screencast-list-container">
-    <ul>
-      <li ng-repeat="screencast in screencasts">
-        <span>{{screencast.title}} <small>({{screencast.summary}})</small><button ng-click="selectScreencast(screencast)">Select</button><button ng-click="deleteScreencast(screencast)">Delete</button></span>
-      </li>
-    </ul>
+      <h1>All</h1>
+      <div id="screencast-list-container">
+        <ul>
+          <li ng-repeat="screencast in screencasts">
+            <span>{{screencast.title}} <small>({{screencast.summary}})</small> <button class="btn" ng-click="selectScreencast(screencast)"> Select </button> <button class="btn" ng-click="deleteScreencast(screencast)"> Delete </button> </span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
   </div>
+
+  <hr>
+
+  <h1>Listing screencasts</h1>
+
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>Duration</th>
+      <th>Link</th>
+      <th>Published at</th>
+      <th>Source</th>
+      <th>Videourl</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+    <% @screencasts.each do |screencast| %>
+    <tr>
+      <td><%= screencast.title %></td>
+      <td><%= screencast.summary %></td>
+      <td><%= screencast.duration %></td>
+      <td><%= screencast.link %></td>
+      <td><%= screencast.published_at %></td>
+      <td><%= screencast.source %></td>
+      <td><%= screencast.videourl %></td>
+      <td><%= link_to 'Show', screencast %></td>
+      <td><%= link_to 'Edit', edit_screencast_path(screencast) %></td>
+      <td><%= link_to 'Destroy', screencast, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <br />
+
+  <%= link_to 'New Screencast', new_screencast_path %>
+
+  <hr>
 
 </div>

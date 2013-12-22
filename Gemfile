@@ -5,9 +5,11 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#  gem 'sqlite3'
-gem 'pg'
+ gem 'sqlite3'
+# gem 'pg'
 
+#gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'bootstrap-sass-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -20,6 +22,16 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
+# gem install guard-livereload
+# bundle exec guard
+group :development do
+  gem 'guard-livereload', require: false
+  require 'rbconfig'
+  gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw|cygwin/i  
+  gem "rack-livereload", :group => :development
+end
+
 
 gem 'jquery-rails'
 

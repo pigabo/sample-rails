@@ -1,4 +1,4 @@
-App.controller 'ScreencastsCtrl', ['$scope', 'Screencast', 'Restangular', ($scope, Screencast, Restangular) ->
+App.controller 'ScreencastsCtrl', ['$scope', 'Restangular', ($scope, Restangular) ->
   # $scope.screencasts = Screencast.query()
   baseScreencasts = Restangular.all('api/screencasts')
 

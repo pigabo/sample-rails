@@ -35,6 +35,7 @@ SampleRails::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  # Sam - pretty json
+  # Sam - custom
   config.middleware.use PrettyJsonResponse
+  config.middleware.use Rack::LiveReload
 end
