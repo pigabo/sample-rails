@@ -2,10 +2,12 @@
 
 <table class="table">
 	<%- @timelines.each do |timeline| %>
+	<%- if timeline.timelineable.present? %> 	
 	<tr>
 		<td><%= timeline.content %></td>
 		<td><%= link_to timeline.timelineable.title, timeline.timelineable %></td>
 		<td><%= timeline.created_at %></td>
 	</tr>
+	<%- end %>
 	<%- end %>
 </table>
