@@ -4,7 +4,7 @@ App.controller 'ScreencastsCtrl', ['$scope', 'Restangular', ($scope, Restangular
 
   $scope.loadScreencasts = ->
     baseScreencasts.getList().then (screencasts) ->    
-      $scope.screencasts = screencasts
+      $scope.screencasts = screencasts     
   $scope.loadScreencasts() 
     
   $scope.deleteScreencast = (screencast) ->
@@ -13,12 +13,12 @@ App.controller 'ScreencastsCtrl', ['$scope', 'Restangular', ($scope, Restangular
       $scope.screencasts = _.without($scope.screencasts, screencast)  
       
   $scope.createScreencast = ->    
-    baseScreencasts.post($scope.newScreencast)
-    $scope.loadScreencasts()
+    baseScreencasts.post($scope.newScreencast).then ->
+      $scope.loadScreencasts()
 
   $scope.updateScreencast = () ->    
-    $scope.selectedScreencast.put()
-    $scope.loadScreencasts()
+    $scope.selectedScreencast.put().then ->
+      $scope.loadScreencasts()
 
   $scope.selectScreencast = (screencast) ->
     # keep the original as-is by copying screencast to a new element

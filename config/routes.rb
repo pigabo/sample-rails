@@ -1,5 +1,9 @@
 SampleRails::Application.routes.draw do
   
+  get "timeline/index"
+ 
+  resources :projects
+
   scope :api, defaults: {format: :json} do
     get "/api/screencasts(.:format)" => "screencasts#index"
     get "/api/screencasts(.:format)/:id" => "screencasts#show"

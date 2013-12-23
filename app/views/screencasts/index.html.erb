@@ -1,7 +1,7 @@
 <div ng-app="AngularCasts" ng-controller="ScreencastsCtrl">
 
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-xs-4 col-sm-4 col-md-4">
 
       <form role="form">
         <h1>Create New Screencast</h1>
@@ -14,6 +14,11 @@
           <label>Summary</label>
           <input type="text" class="form-control"  ng-model="newScreencast.summary" placeholder="summary">
         </div>
+        
+        <div class="form-group">
+          <label>Tags</label>
+          <input type="text" class="form-control" ng-model="newScreencast.tags" placeholder="summary">
+        </div>
 
         <button type="submit" class="btn btn-default" ng-click="createScreencast()"> Create </button>
       </form>
@@ -23,11 +28,13 @@
       <input type="text" ng-model="selectedScreencast.title" placeholder="summary">
       <label>Summary:</label>
       <input type="text" ng-model="selectedScreencast.summary" placeholder="summary">
+	  <label>Tags:</label>
+      <input type="text" ng-model="selectedScreencast.tags" placeholder="tags">
 
       <button class="btn"  ng-click="updateScreencast()"> Update </button>
 
     </div>
-    <div class="col-md-8">
+    <div class="col-xs-8 col-sm-8 col-md-8">
 
       <h1>All</h1>
       <div id="screencast-list-container">
