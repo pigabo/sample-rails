@@ -1,8 +1,12 @@
 class ScreencastsController < ApplicationController
+  
+  # include FormatterHelper
   # GET /screencasts
   # GET /screencasts.json
   def index
     @screencasts = Screencast.all
+    
+    FormatterHelper::strip_white_spaces
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +29,7 @@ class ScreencastsController < ApplicationController
   # GET /screencasts/new.json
   def new
     @screencast = Screencast.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @screencast }
@@ -41,6 +45,11 @@ class ScreencastsController < ApplicationController
   # POST /screencasts.json
   def create
     @screencast = Screencast.new(params[:screencast])
+    
+    p "Sam - 1"
+    IssueMailer.issue_created(@screencast).deliver
+    p "Sam - 2"
+    
 
     respond_to do |format|
       if @screencast.save
